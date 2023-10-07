@@ -3,7 +3,7 @@
 
 ## Technology Stack
 
-- **Message Queue**: [Choose an open-source message queue system]
+- **Message Queue**: Redis
 - **Backend (Publisher)**: Node.js
 - **Backend (Subscriber)**: Node.js
 - **Frontend**: React.js
