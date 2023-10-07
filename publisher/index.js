@@ -6,7 +6,7 @@ const app = express();
 require('dotenv').config();
 const CHANNEL_NAME = 'messages';
 
-const port =process.env.PORT||3004;
+const port = process.env.PORT || 3004;
 const client = redis.createClient({
   host: process.env.REDIS_HOST,
   port: process.env.REDIS_PORT,
@@ -34,15 +34,15 @@ async function publishMessage() {
   }
 }
 
-const messagesPerSecond = 1;
-const intervalMilliseconds = 5000 / messagesPerSecond;
-
+const messagesPerSecond = 20;
+const intervalMilliseconds = 1000 / messagesPerSecond;
 const intervalId = setInterval(publishMessage, intervalMilliseconds);
-
-// Stop publishing after 1 minute (60,000 milliseconds)
 setTimeout(() => {
   clearInterval(intervalId);
+  client.quit(); // Close the Redis connection gracefully
+  console.log('Publisher stopped.');
 }, 60000);
+
 app.listen(port, () => {
   console.log(`Publisher is running on port ${port}`);
 });
