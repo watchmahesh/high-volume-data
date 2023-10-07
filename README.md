@@ -1,6 +1,3 @@
-# High-Volume Data Input Simulation
-
-
 ## Technology Stack
 
 - **Message Queue**: Redis
@@ -36,5 +33,5 @@ This application follows a microservices architecture with the following compone
 ## TO-DOs
 
 - [ ] Implement error handling for Redis connection issues.
-- [ ] Add unit tests for the subscriber component.
+- [ ] Add unit tests for the  publisher,subscriber component.
 - [ ] Improve frontend styling and responsiveness.
